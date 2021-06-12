@@ -1,0 +1,14 @@
+﻿<Application x:Class="ComputerFirm_Vorontsov_N.A_3802.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ComputerFirm_Vorontsov_N.A_3802"
+             StartupUri="WindowAuthorization.xaml">
+    <Application.Resources>
+        <FontFamily x:Key="OpenSansRegular">./Fonts/OpenSans-Regular.ttf#Open Sans</FontFamily>
+        <FontFamily x:Key="OpenSansItalic">./Fonts/OpenSans-Italic.ttf#Open Sans</FontFamily>
+        <FontFamily x:Key="OpenSansBold">./Fonts/OpenSans-Bold.ttf#Open Sans</FontFamily>
+        <FontFamily x:Key="OpenSansBoldItalic">./Fonts/OpenSans-BoldItalic.ttf#Open Sans</FontFamily>
+        <FontFamily x:Key="OpenSansSymbols">./Fonts/OpenSans-Regular.ttf#Open Sans Symbols</FontFamily>
+        <FontFamily x:Key="OpenSansLight">./Fonts/OpenSans-Light.ttf#Open Sans</FontFamily>
+    </Application.Resources>
+</Application>
