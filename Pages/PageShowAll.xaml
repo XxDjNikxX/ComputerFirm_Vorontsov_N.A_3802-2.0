@@ -12,7 +12,21 @@
         <DataGrid>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№п/п" Width=".5*"/>
+                <DataGridTextColumn Header="Дата_Поставки" Width=".5*"/>
+                <DataGridTextColumn Header="Наименование" Width=".5*"/>
                 <DataGridTextColumn Header="Test" Width=".5*"/>
+                <DataGridTextColumn Header="Test" Width=".5*"/>
+                <DataGridTemplateColumn Width=".5*">
+                    <DataGridTemplateColumn.Header>Действия</DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Button Name="btnDel">Удалить</Button>
+                                <Button Name="btnEdit">Изменить</Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
