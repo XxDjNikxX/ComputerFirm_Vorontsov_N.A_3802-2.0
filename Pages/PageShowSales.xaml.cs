@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -30,11 +31,25 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DGSales.ItemsSource = DB.CompFirm.Sales.ToList();
+
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+
+        private void tbSum_Loaded(object sender, RoutedEventArgs e)
+        {
+            decimal sum = 0m;
+            for (int i = 0; i < DGSales.Items.Count - 1; i++)
+            {
+                sum += (decimal.Parse((DGSales.Columns[7].GetCellContent(DGSales.Items[i]) as TextBlock).Text));
+            }
+            tbSum.Text += sum.ToString() + " руб.";
+        }
+
     }
+
 }
