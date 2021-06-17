@@ -27,7 +27,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802
             InitializeComponent();
             MyAuth = auth;
             tbWelcomeName.Text = "Добро пожаловать, " + auth.Login;
-            MainFrame.Navigate(new Pages.PageShowSales());
+            MainFrame.Navigate(new Pages.PageShowGrids());
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -35,9 +35,9 @@ namespace ComputerFirm_Vorontsov_N.A_3802
             Close();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void btnShowList_Click(object sender, RoutedEventArgs e)
         {
-
+            MainFrame.Navigate(new Pages.PageShowGrids());
         }
     }
 }

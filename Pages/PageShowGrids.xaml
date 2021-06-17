@@ -1,0 +1,33 @@
+﻿<Page x:Class="ComputerFirm_Vorontsov_N.A_3802.Pages.PageShowGrids"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ComputerFirm_Vorontsov_N.A_3802.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageShowGrids" FontFamily="{StaticResource OpenSansLight}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="White">
+              Выберите Таблицу
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <Button Name="btnShowCity" Click="btnShowCity_Click" Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Города</Button>
+                <Button Name="btnShowCustomer" Click="btnShowCustomer_Click" Margin="0,5" Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Покупатели</Button>
+                <Button Name="btnShowSales" Click="btnShowSales_Click"  Margin="0,5"  Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Продажи</Button>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <Button Name="btnShowProduct" Click="btnShowProduct_Click"   Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Продукты</Button>
+                <Button Name="btnShowProductType" Click="btnShowProductType_Click"  Margin="0,5" Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Виды Продуктов</Button>
+                <Button Name="btnBack" Click="btnBack_Click" Margin="0,5"  Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Назад</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

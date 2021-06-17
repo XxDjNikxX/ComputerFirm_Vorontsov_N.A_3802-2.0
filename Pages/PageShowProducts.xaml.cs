@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,18 +17,18 @@ using ClassLibraryDB;
 namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для PageShowAll.xaml
+    /// Логика взаимодействия для PageShowProducts.xaml
     /// </summary>
-    public partial class PageShowSales : Page
+    public partial class PageShowProducts : Page
     {
-        public PageShowSales()
+        public PageShowProducts()
         {
             InitializeComponent();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            DGSales.ItemsSource = DB.CompFirm.Sales.ToList();
+            DGProducts.ItemsSource = DB.CompFirm.Product.ToList();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
