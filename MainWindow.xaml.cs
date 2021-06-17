@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClassLibraryDB;
 
 namespace ComputerFirm_Vorontsov_N.A_3802
 {
@@ -20,9 +21,23 @@ namespace ComputerFirm_Vorontsov_N.A_3802
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        Auth MyAuth { get; set; }
+        public MainWindow(Auth auth)
         {
             InitializeComponent();
+            MyAuth = auth;
+            tbWelcomeName.Text = "Добро пожаловать, " + auth.Login;
+            MainFrame.Navigate(new Pages.PageShowSales());
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

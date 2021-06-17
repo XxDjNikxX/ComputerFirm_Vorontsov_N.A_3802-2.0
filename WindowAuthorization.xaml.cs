@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ClassLibraryDB;
 
 namespace ComputerFirm_Vorontsov_N.A_3802
 {
@@ -22,6 +23,36 @@ namespace ComputerFirm_Vorontsov_N.A_3802
         public WindowAuthorization()
         {
             InitializeComponent();
+        }
+
+        private void btnAuth_Click(object sender, RoutedEventArgs e)
+        {
+            var auth = DB.CompFirm.Auth.FirstOrDefault(u => u.Login == tbLogin.Text && u.Password == tbPassword.Password);
+            try
+            {
+                if (auth != null)
+                {
+                    MessageBox.Show("Авторизация прошла успешно!");
+                    MainWindow main = new MainWindow(auth);
+                    main.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Неправильный логин или пароль");
+                }
+
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка авториизации!");
+            }
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
