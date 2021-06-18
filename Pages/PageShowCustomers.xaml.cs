@@ -30,6 +30,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+
             DGCustomers.ItemsSource = DB.CompFirm.Customer.ToList();
             cbCity.ItemsSource = DB.CompFirm.City.ToList();
             tbCustStreet.Text = String.Empty;
