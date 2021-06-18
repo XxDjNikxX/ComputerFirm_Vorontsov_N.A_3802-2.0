@@ -1,0 +1,40 @@
+﻿<Page x:Class="ComputerFirm_Vorontsov_N.A_3802.Pages.PageAddCustomer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ComputerFirm_Vorontsov_N.A_3802.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAddCustomer" Foreground="White" FontFamily="{StaticResource OpenSansLight}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".2*"/>
+            <RowDefinition Height="2.2*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="White">
+              Добавить покупателя
+        </TextBlock>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto">
+            <TextBlock>Имя покупателя:</TextBlock>
+            <TextBox  Name="tbFirstName"  Background="Black" Opacity=".50" Foreground="White"></TextBox>
+            <TextBlock>Фамилия покупателя:</TextBlock>
+            <TextBox  Name="tbSecondName"  Background="Black" Opacity=".50" Foreground="White"></TextBox>
+            <TextBlock>Отчество Покупателя:</TextBlock>
+            <TextBox Name="tbPatherName" Background="Black" Opacity=".50" Foreground="White"></TextBox>
+            <TextBlock>Город Проживания:</TextBlock>
+            <ComboBox Name="cbCity" Width="125" Background="Black" Margin="0,0,50,0"></ComboBox>
+            <TextBlock>Улица:</TextBlock>
+            <TextBox Name="tbCustStreet" Background="Black" Opacity=".50" Foreground="White"></TextBox>
+            <TextBlock>Телефон (Пример: 999-99-99):</TextBlock>
+            <TextBox Name="tbCustTel" Background="Black" Opacity=".50" Foreground="White"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,20" >
+            <Button Name="btnApply" Click="btnApply_Click" Width="150" Height="25"  Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Добавить</Button>
+            <Button Name="btnCancel" Click="btnCancel_Click" Width="150" Height="25" Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Отменить</Button>
+        </StackPanel>
+    </Grid>
+</Page>

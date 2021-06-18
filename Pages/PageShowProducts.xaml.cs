@@ -33,6 +33,19 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new PageAddProduct());
+        }
+
+        private void btnDel_Click(object sender, RoutedEventArgs e)
+        {
+            Product product = DGProducts.SelectedItem as Product;
+            DB.CompFirm.Product.Remove(product);
+            DB.CompFirm.SaveChanges();
+            Page_Loaded(sender, e);
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

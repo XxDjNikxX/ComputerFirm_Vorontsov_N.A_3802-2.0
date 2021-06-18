@@ -42,7 +42,20 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
         private void tbSum_Loaded(object sender, RoutedEventArgs e)
         {
             decimal sum = (decimal)DB.CompFirm.Sales.Sum(u => u.Price_Total);
-            tbSum.Text = sum.ToString() + " руб."; 
+            tbSum.Text = "Итого: " + sum.ToString() + " руб."; 
+        }
+
+        private void btnDel_Click(object sender, RoutedEventArgs e)
+        {
+            Sales sales = DGSales.SelectedItem as Sales;
+            DB.CompFirm.Sales.Remove(sales);
+            DB.CompFirm.SaveChanges();
+            Page_Loaded(sender, e);
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

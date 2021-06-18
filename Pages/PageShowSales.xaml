@@ -28,8 +28,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <Button Name="btnDel">Удалить</Button>
-                                <Button Name="btnEdit">Изменить</Button>
+                                <Button Name="btnDel" Click="btnDel_Click">Удалить</Button>
+                                <Button Name="btnEdit" Click="btnEdit_Click">Изменить</Button>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

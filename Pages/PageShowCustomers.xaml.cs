@@ -28,12 +28,25 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new PageAddCustomer());
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DGCustomers.ItemsSource = DB.CompFirm.Customer.ToList();
+        }
+
+        private void btnDel_Click(object sender, RoutedEventArgs e)
+        {
+            Customer customer = DGCustomers.SelectedItem as Customer;
+            DB.CompFirm.Customer.Remove(customer);
+            DB.CompFirm.SaveChanges();
+            Page_Loaded(sender, e);
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

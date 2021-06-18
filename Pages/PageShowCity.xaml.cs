@@ -33,6 +33,19 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new PageAddCity());
+        }
+
+        private void btnDel_Click(object sender, RoutedEventArgs e)
+        {
+            City city = DGCity.SelectedItem as City;
+            DB.CompFirm.City.Remove(city);
+            DB.CompFirm.SaveChanges();
+            Page_Loaded(sender, e);
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
