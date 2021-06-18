@@ -9,33 +9,56 @@
       Title="PageShowProducts" Loaded="Page_Loaded" FontFamily="{StaticResource OpenSansLight}">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height=".4*"/>
-        </Grid.RowDefinitions>
-        
-        <DataGrid  Name="DGProducts" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="№п/п" Binding="{Binding idProduct}" Width=".5*"/>
-                <DataGridTextColumn Header="Тип Продукта" Binding="{Binding ProductType}" Width=".5*"/>
-                <DataGridTextColumn Header="Наименование" Binding="{Binding ProductName}" Width=".5*"/>
-                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}" Width=".5*"/>
-                <DataGridTextColumn Header="Скидка" Binding="{Binding Discount}" Width=".3*"/>
-                <DataGridTemplateColumn Width=".5*">
-                    <DataGridTemplateColumn.Header>Действия</DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <Button Name="btnDel" Click="btnDel_Click">Удалить</Button>
-                                <Button Name="btnEdit" Click="btnEdit_Click">Изменить</Button>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel Grid.Row="2" Margin="0,20,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Name="btnAdd" Click="btnAdd_Click"  Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="250" Height="50">Добавить</Button>
-        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width=".5*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid  Name="DGProducts" Grid.Column="0" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№п/п" Binding="{Binding idProduct}" Width=".5*"/>
+                    <DataGridTextColumn Header="Тип Продукта" Binding="{Binding ProductType}" Width=".5*"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding ProductName}" Width=".5*"/>
+                    <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}" Width=".5*"/>
+                    <DataGridTextColumn Header="Скидка" Binding="{Binding Discount}" Width=".3*"/>
+                    <DataGridTemplateColumn Width=".5*">
+                        <DataGridTemplateColumn.Header>Действия</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Button Name="btnDel" Click="btnDel_Click">Удалить</Button>
+                                    <Button Name="btnEdit" Click="btnEdit_Click">Изменить</Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Column="1" HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock  Name="tbLogoText"  FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="White">
+              Добавить Продукт
+                </TextBlock>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto">
+                    <TextBlock Foreground="White">Тип Продукта:</TextBlock>
+                    <ComboBox Width="125" Name="cbTypeProduct"  Background="Black"  ></ComboBox>
+                    <TextBlock Foreground="White">Наименование:</TextBlock>
+                    <TextBox  Background="Black" Name="tbProductName" Opacity=".50" Foreground="White"></TextBox>
+                    <TextBlock Foreground="White">Цена:</TextBlock>
+                    <TextBox Name="tbPrice" Background="Black" Opacity=".50" Foreground="White"></TextBox>
+                    <TextBlock Foreground="White">Скидка:</TextBlock>
+                    <TextBox Name="tbDiscount" Background="Black" Opacity=".50" Foreground="White"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Center"  HorizontalAlignment="Center" >
+                    <Button Name="btnApply" Click="btnApply_Click" Width="75" Height="25"  Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Добавить</Button>
+                    <Button Name="btnCancel" Click="btnCancel_Click" Margin="20,0" Width="75" Height="25" Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Отменить</Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

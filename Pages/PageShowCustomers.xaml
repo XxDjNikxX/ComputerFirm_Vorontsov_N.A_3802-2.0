@@ -11,32 +11,64 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height=".4*"/>
         </Grid.RowDefinitions>
-        <DataGrid  Name="DGCustomers" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="№п/п" Binding="{Binding idCustomer}" Width=".5*"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width=".5*"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding SecondName}" Width=".5*"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding PatherName}" Width=".5*"/>
-                <DataGridTextColumn Header="Город" Binding="{Binding City}" Width=".3*"/>
-                <DataGridTextColumn Header="Улица" Binding="{Binding CustStreet}" Width=".5*"/>
-                <DataGridTextColumn Header="Телефон" Binding="{Binding CustTelephone}" Width=".5*"/>
-                <DataGridTemplateColumn Width=".5*">
-                    <DataGridTemplateColumn.Header>Действия</DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <Button Name="btnDel" Click="btnDel_Click">Удалить</Button>
-                                <Button Name="btnEdit" Click="btnEdit_Click">Изменить</Button>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel Grid.Row="2" Margin="0,20,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Name="btnAdd" Click="btnAdd_Click"  Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="250" Height="50">Добавить</Button>
-        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Column="0" Name="DGCustomers" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№п/п" Binding="{Binding idCustomer}" Width=".5*"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width=".5*"/>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding SecondName}" Width=".5*"/>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding PatherName}" Width=".5*"/>
+                    <DataGridTextColumn Header="Город" Binding="{Binding City}" Width=".3*"/>
+                    <DataGridTextColumn Header="Улица" Binding="{Binding CustStreet}" Width=".5*"/>
+                    <DataGridTextColumn Header="Телефон" Binding="{Binding CustTelephone}" Width=".5*"/>
+                    <DataGridTemplateColumn Width=".5*">
+                        <DataGridTemplateColumn.Header>Действия</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Button Name="btnDel" Click="btnDel_Click">Удалить</Button>
+                                    <Button Name="btnEdit" Click="btnEdit_Click">Изменить</Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height="2.2*"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="15" Name="tbLogoText" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="White">
+              Добавить покупателя
+                </TextBlock>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto">
+                    <TextBlock Foreground="White">Имя покупателя:</TextBlock>
+                    <TextBox  Name="tbFirstName"  Background="Black" Opacity=".50" Foreground="White"></TextBox>
+                    <TextBlock Foreground="White">Фамилия покупателя:</TextBlock>
+                    <TextBox  Name="tbSecondName"  Background="Black" Opacity=".50" Foreground="White"></TextBox>
+                    <TextBlock Foreground="White">Отчество Покупателя:</TextBlock>
+                    <TextBox Name="tbPatherName" Background="Black" Opacity=".50" Foreground="White"></TextBox>
+                    <TextBlock Foreground="White">Город Проживания:</TextBlock>
+                    <ComboBox Name="cbCity" Width="125" Background="Black" Margin="0,0,50,0"></ComboBox>
+                    <TextBlock Foreground="White">Улица:</TextBlock>
+                    <TextBox Name="tbCustStreet" Background="Black" Opacity=".50" Foreground="White"></TextBox>
+                    <TextBlock Foreground="White">Телефон (Пример: 999-99-99):</TextBlock>
+                    <TextBox Name="tbCustTel" Background="Black" Opacity=".50" Foreground="White"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Margin="0,10" >
+                    <Button Name="btnApply" Click="btnApply_Click" Width="75" Height="25"  Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Добавить</Button>
+                    <Button Name="btnCancel" Click="btnCancel_Click" Width="75" Margin="20,0" Height="25" Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Отменить</Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+       
     </Grid>
 </Page>

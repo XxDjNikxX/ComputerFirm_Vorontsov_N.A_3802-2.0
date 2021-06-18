@@ -23,6 +23,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
     /// </summary>
     public partial class PageShowSales : Page
     {
+        Sales MySales { get; set; }
         public PageShowSales()
         {
             InitializeComponent();
@@ -31,13 +32,14 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DGSales.ItemsSource = DB.CompFirm.Sales.ToList();
-
+            cbCustomers.ItemsSource = DB.CompFirm.Customer.ToList();
+            cbProducts.ItemsSource = DB.CompFirm.Product.ToList();
+            DPSlaes.Text = string.Empty;
+            tbCount.Text = string.Empty;
+            tbLogoText.Text = "Добавить Продажу";
+            btnApply.Content = "Добавить";
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new PageAddSale());
-        }
 
         private void tbSum_Loaded(object sender, RoutedEventArgs e)
         {
@@ -48,14 +50,42 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
             Sales sales = DGSales.SelectedItem as Sales;
-            DB.CompFirm.Sales.Remove(sales);
+            var result = MessageBox.Show("Вы уверены что хотите удалить строку:" + sales.idProduct + "?", "Подверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes) DB.CompFirm.Sales.Remove(sales);
             DB.CompFirm.SaveChanges();
             Page_Loaded(sender, e);
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+            MySales = DGSales.SelectedItem as Sales;
+            tbLogoText.Text = "Изменить Продажу";
+            btnApply.Content = "Изменить";
 
+            DPSlaes.Text = MySales.Sale_Date.ToString();
+            cbCustomers.SelectedItem = MySales.Customer as Customer;
+            cbProducts.SelectedItem = MySales.Product as Product;
+            tbCount.Text = MySales.Count.ToString();
+        }
+
+        private void btnApply_Click(object sender, RoutedEventArgs e)
+        {
+            MySales.Sale_Date = DPSlaes.DisplayDate;
+            MySales.Customer = cbCustomers.SelectedItem as Customer;
+            MySales.Product = cbProducts.SelectedItem as Product;
+            MySales.Count = int.Parse(tbCount.Text);
+
+            if (!DB.CompFirm.Sales.Any(u => u.idSale == MySales.idSale) && !DB.CompFirm.Sales.Any(u => u.Sale_Date == MySales.Sale_Date))
+            {
+                DB.CompFirm.Sales.Add(MySales);
+            }
+            DB.CompFirm.SaveChanges();
+            Page_Loaded(sender, e);
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Page_Loaded(sender, e);
         }
     }
 }

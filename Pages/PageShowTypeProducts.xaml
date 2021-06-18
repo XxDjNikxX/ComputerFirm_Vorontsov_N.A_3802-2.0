@@ -11,27 +11,49 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height=".4*"/>
         </Grid.RowDefinitions>
-        <DataGrid  Name="DGProductsType" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="№п/п" Binding="{Binding idProductType}" Width=".5*"/>
-                <DataGridTextColumn Header="Тип Продукта" Binding="{Binding ProductTypeName}" Width=".5*"/>
-                <DataGridTemplateColumn Width=".5*">
-                    <DataGridTemplateColumn.Header>Действия</DataGridTemplateColumn.Header>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <Button Name="btnDel" Click="btnDel_Click">Удалить</Button>
-                                <Button Name="btnEdit" Click="btnEdit_Click">Изменить</Button>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel Grid.Row="2" Margin="0,20,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Name="btnAdd" Click="btnAdd_Click"  Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="250" Height="50">Добавить</Button>
-        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <DataGrid  Grid.Column="0" Name="DGProductsType" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№п/п" Binding="{Binding idProductType}" Width=".5*"/>
+                    <DataGridTextColumn Header="Тип Продукта" Binding="{Binding ProductTypeName}" Width=".5*"/>
+                    <DataGridTemplateColumn Width=".5*">
+                        <DataGridTemplateColumn.Header>Действия</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Button Name="btnDel" Click="btnDel_Click">Удалить</Button>
+                                    <Button Name="btnEdit" Click="btnEdit_Click">Изменить</Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Name="tbLogoNameText" FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="White">
+              Добавить Тип Продукта
+                </TextBlock>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto">
+                    <TextBlock Foreground="White">Наименование:</TextBlock>
+                    <TextBox  Background="Black" Name="tbTypeProductName" Opacity=".50" Foreground="White"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <Button Name="btnApply" Click="btnApply_Click" Width="75" Height="25"  Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Добавить</Button>
+                    <Button Name="btnCancel" Click="btnCancel_Click" Margin="10,0" Width="75" Height="25" Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Отменить</Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+      
     </Grid>
 </Page>

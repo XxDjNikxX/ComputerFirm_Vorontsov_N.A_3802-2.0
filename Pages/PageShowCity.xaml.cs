@@ -21,6 +21,8 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
     /// </summary>
     public partial class PageShowCity : Page
     {
+
+        City MyCity { get; set; }
         public PageShowCity()
         {
             InitializeComponent();
@@ -29,24 +31,56 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             DGCity.ItemsSource = DB.CompFirm.City.ToList();
-        }
-
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new PageAddCity());
+            tbCityName.Text = string.Empty;
+            tbNameLogo.Text = "Добавить город";
+            btnApply.Content = "Добавить";
+            MyCity = new City();
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
             City city = DGCity.SelectedItem as City;
-            DB.CompFirm.City.Remove(city);
+            var result = MessageBox.Show("Вы уверены что хотите удалить строку:" + city.idCity + "?", "Подверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                DB.CompFirm.City.Remove(city);
+
+            }
             DB.CompFirm.SaveChanges();
             Page_Loaded(sender, e);
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+            MyCity = DGCity.SelectedItem as City;
+            tbCityName.Text = MyCity.CityName;
+            tbNameLogo.Text = "Изменить город";
+            btnApply.Content = "Изменить";
+        }
 
+        private void btnApply_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbCityName.Text is null)
+            {
+                MessageBox.Show("Введена пустая строка!");
+                Page_Loaded(sender, e);
+            }
+            else
+            {
+                MyCity.CityName = tbCityName.Text;
+                if (!DB.CompFirm.City.Any(u => u.idCity == MyCity.idCity) && !DB.CompFirm.City.Any(u => u.CityName == MyCity.CityName))
+                {
+                    DB.CompFirm.City.Add(MyCity);
+                }
+                DB.CompFirm.SaveChanges();
+                Page_Loaded(sender, e);
+            }
+         
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Page_Loaded(sender, e);
         }
     }
 }
