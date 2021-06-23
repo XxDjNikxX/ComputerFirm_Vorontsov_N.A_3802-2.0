@@ -32,6 +32,8 @@ namespace ComputerFirm_Vorontsov_N.A_3802
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
+            WindowAuthorization auth = new WindowAuthorization();
+            auth.Show();
             Close();
         }
 

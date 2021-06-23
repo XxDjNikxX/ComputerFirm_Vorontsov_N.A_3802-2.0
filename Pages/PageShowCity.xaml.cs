@@ -60,7 +60,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
         {
-            if (tbCityName.Text is null)
+            if (string.IsNullOrEmpty(tbCityName.Text))
             {
                 MessageBox.Show("Введена пустая строка!");
                 Page_Loaded(sender, e);

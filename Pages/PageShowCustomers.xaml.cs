@@ -69,12 +69,20 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
         {
-            MyCustomer.FirstName = tbFirstName.Text;
-            MyCustomer.SecondName = tbSecondName.Text;
-            MyCustomer.PatherName = tbSecondName.Text;
-            MyCustomer.City = cbCity.SelectedItem as City;
-            MyCustomer.CustStreet = tbCustStreet.Text;
-            MyCustomer.CustTelephone = tbCustTel.Text;
+            if (string.IsNullOrEmpty(tbFirstName.Text) || string.IsNullOrEmpty(tbSecondName.Text) || cbCity.SelectedItem == null)
+            {
+                MessageBox.Show("Внимание, имеются пустые поля или не выбраные значения!!!");
+            }
+            else
+            {
+                MyCustomer.FirstName = tbFirstName.Text;
+                MyCustomer.SecondName = tbSecondName.Text;
+                MyCustomer.PatherName = tbSecondName.Text;
+                MyCustomer.City = cbCity.SelectedItem as City;
+                MyCustomer.CustStreet = tbCustStreet.Text;
+                MyCustomer.CustTelephone = tbCustTel.Text;
+            }
+            
 
             if (!DB.CompFirm.Customer.Any(u => u.idCustomer == MyCustomer.idCustomer) && !DB.CompFirm.Customer.Any(u => u.FirstName == MyCustomer.FirstName))
             {

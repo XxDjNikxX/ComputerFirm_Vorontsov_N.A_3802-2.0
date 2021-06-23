@@ -23,6 +23,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
         public PageShowGrids()
         {
             InitializeComponent();
+            if (Mya)
         }
 
         private void btnShowCity_Click(object sender, RoutedEventArgs e)
