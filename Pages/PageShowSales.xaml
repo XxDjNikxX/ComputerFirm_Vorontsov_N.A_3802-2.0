@@ -51,7 +51,7 @@
                    Foreground="White">
               Добавить продажу
                 </TextBlock>
-                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto">
+                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="20,0" Height="auto">
                     <TextBlock Foreground="White">Дата Продажи:</TextBlock>
                     <DatePicker Name="DPSlaes" Background="Black"></DatePicker>
                     <TextBlock Foreground="White">Покупатель:</TextBlock>

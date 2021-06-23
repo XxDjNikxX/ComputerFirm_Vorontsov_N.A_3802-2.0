@@ -34,7 +34,7 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Grid Grid.Column="1" HorizontalAlignment="Left">
+            <Grid Grid.Column="1" HorizontalAlignment="Left" Margin="20,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height=".2*"/>
                     <RowDefinition Height="2*"/>

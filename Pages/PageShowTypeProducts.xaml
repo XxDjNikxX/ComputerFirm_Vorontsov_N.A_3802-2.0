@@ -44,7 +44,7 @@
                    Foreground="White">
               Добавить Тип Продукта
                 </TextBlock>
-                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto">
+                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto" Margin="20,0">
                     <TextBlock Foreground="White">Наименование:</TextBlock>
                     <TextBox  Background="Black" Name="tbTypeProductName" Opacity=".50" Foreground="White"></TextBox>
                 </StackPanel>

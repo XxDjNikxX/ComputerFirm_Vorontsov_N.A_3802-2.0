@@ -39,7 +39,7 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Grid Grid.Column="1" >
+            <Grid Grid.Column="1" Margin="20,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height=".2*"/>
                     <RowDefinition Height="2.2*"/>
@@ -49,7 +49,7 @@
                    Foreground="White">
               Добавить покупателя
                 </TextBlock>
-                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto">
+                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto" Margin="0,10">
                     <TextBlock Foreground="White">Имя покупателя:</TextBlock>
                     <TextBox  Name="tbFirstName"  Background="Black" Opacity=".50" Foreground="White"></TextBox>
                     <TextBlock Foreground="White">Фамилия покупателя:</TextBlock>

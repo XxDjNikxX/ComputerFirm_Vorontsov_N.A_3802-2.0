@@ -53,9 +53,6 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
             NavigationService.Navigate(new PageShowTypeProducts());
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
-        }
+
     }
 }
