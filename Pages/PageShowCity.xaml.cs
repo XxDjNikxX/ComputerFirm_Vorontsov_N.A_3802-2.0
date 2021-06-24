@@ -60,14 +60,11 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(tbCityName.Text))
-            {
-                MessageBox.Show("Введена пустая строка!");
-                Page_Loaded(sender, e);
-            }
-            else
+            
+            if(CheckTextBoxes(sender,e))
             {
                 MyCity.CityName = tbCityName.Text;
+
                 if (!DB.CompFirm.City.Any(u => u.idCity == MyCity.idCity) && !DB.CompFirm.City.Any(u => u.CityName == MyCity.CityName))
                 {
                     DB.CompFirm.City.Add(MyCity);
@@ -77,7 +74,32 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
             }
          
         }
+        private bool CheckTextBoxes(object sender, RoutedEventArgs e)
+        {
+            bool apply = true;
+            char[] chars = { '-', '@', '/', '_', '%', '{', '}', '=', '-', '+', '|' };
 
+            if (string.IsNullOrEmpty(tbCityName.Text))
+            {
+                MessageBox.Show("Введена пустая строка!");
+                Page_Loaded(sender, e); apply = false;
+            }
+
+            if (double.TryParse(tbCityName.Text, out double number))
+            {
+                MessageBox.Show("Введено число!");
+                Page_Loaded(sender, e); apply = false;
+            }
+            foreach (var ch in chars)
+            {
+                if (tbCityName.Text.Contains(ch))
+                {
+                    MessageBox.Show("Введён символ");
+                    Page_Loaded(sender, e); apply = false;
+                }
+            }
+            return apply;
+        }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Page_Loaded(sender, e);

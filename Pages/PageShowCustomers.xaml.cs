@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,18 +32,22 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            EmptyStrings();
             DGCustomers.ItemsSource = DB.CompFirm.Customer.ToList();
             cbCity.ItemsSource = DB.CompFirm.City.ToList();
+            tbLogoText.Text = "Добавить Покупателя";
+            btnApply.Content = "Добавить";
+            MyCustomer = new Customer();
+
+        }
+
+        private void EmptyStrings()
+        {
             tbCustStreet.Text = String.Empty;
             tbCustTel.Text = String.Empty;
             tbFirstName.Text = String.Empty;
             tbSecondName.Text = String.Empty;
             tbPatherName.Text = String.Empty;
-
-            tbLogoText.Text = "Добавить Покупателя";
-            btnApply.Content = "Добавить";
-            MyCustomer = new Customer();
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
@@ -69,11 +75,8 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(tbFirstName.Text) || string.IsNullOrEmpty(tbSecondName.Text) || cbCity.SelectedItem == null)
-            {
-                MessageBox.Show("Внимание, имеются пустые поля или не выбраные значения!!!");
-            }
-            else
+
+            if (CheckTextBoxes(sender, e))
             {
                 MyCustomer.FirstName = tbFirstName.Text;
                 MyCustomer.SecondName = tbSecondName.Text;
@@ -81,15 +84,57 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
                 MyCustomer.City = cbCity.SelectedItem as City;
                 MyCustomer.CustStreet = tbCustStreet.Text;
                 MyCustomer.CustTelephone = tbCustTel.Text;
-            }
-            
 
-            if (!DB.CompFirm.Customer.Any(u => u.idCustomer == MyCustomer.idCustomer) && !DB.CompFirm.Customer.Any(u => u.FirstName == MyCustomer.FirstName))
-            {
-                DB.CompFirm.Customer.Add(MyCustomer);
+
+                if (!DB.CompFirm.Customer.Any(u => u.idCustomer == MyCustomer.idCustomer))
+                {
+                    DB.CompFirm.Customer.Add(MyCustomer);
+
+                }
+                DB.CompFirm.SaveChanges();
+                Page_Loaded(sender, e);
             }
-            DB.CompFirm.SaveChanges();
-            Page_Loaded(sender, e);
+
+        }
+
+        private bool CheckTextBoxes(object sender, RoutedEventArgs e)
+        {
+            bool apply = true;
+            char[] chars = { '-', '@', '/', '_', '%', '{', '}', '=', '-', '+', '|' };
+
+            List<TextBox> TbList = new List<TextBox>();
+
+            foreach (var tb in MainPanel.Children)
+            {
+                if (tb is TextBox)
+                {
+                    TbList.Add((TextBox)tb);
+                }
+            }
+
+            foreach (var el in TbList)
+            {
+                if (string.IsNullOrEmpty(el.Text))
+                {
+                    MessageBox.Show("Внимание, введена пустая строка!");
+                    Page_Loaded(sender, e); apply = false;
+                }
+                if (el.Name == "tbCustTel") break;
+                else if (double.TryParse(el.Text, out double res))
+                {
+                    MessageBox.Show("Внимание, введено число!"); apply = false;
+                }
+                foreach (var ch in chars)
+                {
+                    if (el.Text.Contains(ch))
+                    {
+                        MessageBox.Show("Введены символы, вместо чисел!");
+                        Page_Loaded(sender, e); apply = false;
+                    }
+                }
+
+            }
+            return apply;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

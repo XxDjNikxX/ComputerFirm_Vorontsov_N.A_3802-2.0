@@ -9,12 +9,9 @@
       Title="PageShowTypeProducts" FontFamily="{StaticResource OpenSansLight}" Loaded="Page_Loaded">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <DataGrid  Grid.Column="0" Name="DGProductsType" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True">
@@ -35,20 +32,15 @@
                 </DataGrid.Columns>
             </DataGrid>
             <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height=".2*"/>
-                    <RowDefinition Height=".2*"/>
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <TextBlock Name="tbLogoNameText" FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                <TextBlock Name="tbLogoNameText" FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" 
                    Foreground="White">
               Добавить Тип Продукта
                 </TextBlock>
-                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto" Margin="20,0">
+                <StackPanel HorizontalAlignment="Left" Margin="20,50">
                     <TextBlock Foreground="White">Наименование:</TextBlock>
                     <TextBox  Background="Black" Name="tbTypeProductName" Opacity=".50" Foreground="White"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" >
                     <Button Name="btnApply" Click="btnApply_Click" Width="75" Height="25"  Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Добавить</Button>
                     <Button Name="btnCancel" Click="btnCancel_Click" Margin="10,0" Width="75" Height="25" Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Отменить</Button>
                 </StackPanel>

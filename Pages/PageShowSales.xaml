@@ -23,8 +23,8 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="№п/п" Binding="{Binding idSale}" Width=".5*"/>
                     <DataGridTextColumn Header="Дата Продажи" Binding="{Binding Sale_Date, StringFormat=\{0:dd-MMMM-yyyy\},ConverterCulture={x:Static SystemGlobalization:CultureInfo.CurrentCulture}}" Width=".5*"/>
-                    <DataGridTextColumn Header="Покупатель" Binding="{Binding Customer}" Width=".5*"/>
-                    <DataGridTextColumn Header="Наименование" Binding="{Binding Product}" Width=".5*"/>
+                    <DataGridTextColumn Header="Покупатель" Binding="{Binding Customer,  TargetNullValue = Отстуствует/Удалено}" Width=".5*"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Product, TargetNullValue = Отстуствует/Удалено}" Width=".5*"/>
                     <DataGridTextColumn Header="Кол-во" Binding="{Binding Count}" Width=".5*"/>
                     <DataGridTextColumn Header="Общая стоимость" Binding="{Binding Price_Total}" Width=".5*"/>
                     <DataGridTemplateColumn Width=".5*">

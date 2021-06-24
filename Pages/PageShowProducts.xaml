@@ -17,7 +17,7 @@
             <DataGrid  Name="DGProducts" Grid.Column="0" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="№п/п" Binding="{Binding idProduct}" Width=".5*"/>
-                    <DataGridTextColumn Header="Тип Продукта" Binding="{Binding ProductType}" Width=".5*"/>
+                    <DataGridTextColumn Header="Тип Продукта" Binding="{Binding ProductType,TargetNullValue = Отсуствует/Удалено}" Width=".5*"/>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding ProductName}" Width=".5*"/>
                     <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}" Width=".5*"/>
                     <DataGridTextColumn Header="Скидка" Binding="{Binding Discount}" Width=".3*"/>
@@ -35,26 +35,21 @@
                 </DataGrid.Columns>
             </DataGrid>
             <Grid Grid.Column="1" HorizontalAlignment="Left" Margin="20,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height=".2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <TextBlock  Name="tbLogoText"  FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                <TextBlock  Name="tbLogoText"  FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" 
                    Foreground="White">
               Добавить Продукт
                 </TextBlock>
-                <StackPanel Grid.Row="1" HorizontalAlignment="Left" Height="auto">
+                <StackPanel Name="MainPanel" Grid.Row="1" HorizontalAlignment="Left"  Margin="0,50">
                     <TextBlock Foreground="White">Тип Продукта:</TextBlock>
-                    <ComboBox Width="125" Name="cbTypeProduct"  Background="Black"  ></ComboBox>
+                    <ComboBox Width="125" Name="cbTypeProduct" HorizontalAlignment="Left" Background="Black"  ></ComboBox>
                     <TextBlock Foreground="White">Наименование:</TextBlock>
                     <TextBox  Background="Black" Name="tbProductName" Opacity=".50" Foreground="White"></TextBox>
                     <TextBlock Foreground="White">Цена:</TextBlock>
                     <TextBox Name="tbPrice" Background="Black" Opacity=".50" Foreground="White"></TextBox>
-                    <TextBlock Foreground="White">Скидка:</TextBlock>
+                    <TextBlock Foreground="White">Скидка (целыми числами):</TextBlock>
                     <TextBox Name="tbDiscount" Background="Black" Opacity=".50" Foreground="White"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Center"  HorizontalAlignment="Center" >
+                <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Bottom"  HorizontalAlignment="Center" >
                     <Button Name="btnApply" Click="btnApply_Click" Width="75" Height="25"  Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Добавить</Button>
                     <Button Name="btnCancel" Click="btnCancel_Click" Margin="20,0" Width="75" Height="25" Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Отменить</Button>
                 </StackPanel>
