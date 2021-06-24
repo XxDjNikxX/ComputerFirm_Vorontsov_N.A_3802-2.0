@@ -44,8 +44,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void tbSum_Loaded(object sender, RoutedEventArgs e)
         {
-            decimal sum = (decimal)DB.CompFirm.Sales.Sum(u => u.Price_Total);
-            tbSum.Text = "Итого: " + sum.ToString() + " руб."; 
+            CountMoney();     
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
@@ -82,6 +81,14 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
             }
             DB.CompFirm.SaveChanges();
             Page_Loaded(sender, e);
+        }
+
+        public void CountMoney()
+        {
+            decimal sum = 0;
+            if (DB.CompFirm.Sales.Sum(u => u.Price_Total).HasValue) sum = DB.CompFirm.Sales.Sum(u => u.Price_Total).Value;
+            else sum = 0;
+            tbSum.Text = "Итого: " + sum.ToString() + " руб.";
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

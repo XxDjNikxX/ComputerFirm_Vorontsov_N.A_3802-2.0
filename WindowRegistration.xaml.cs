@@ -43,10 +43,12 @@ namespace ComputerFirm_Vorontsov_N.A_3802
                     DB.CompFirm.SaveChanges();
 
                     MessageBox.Show("Регистрация произошла успешно!");
+                    WindowAuthorization auth = new WindowAuthorization();
+                    auth.Show();
                     Close();
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Ошибка регистрации");
                 }
