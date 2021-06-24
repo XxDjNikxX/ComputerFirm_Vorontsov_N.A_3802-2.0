@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerFirm_Vorontsov_N.A_3802", "ComputerFirm_Vorontsov_N.A_3802.csproj", "{EDF2B9CB-F3E9-4634-BBD5-43D78B70AAB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryDB", "..\ClassLibraryDB\ClassLibraryDB.csproj", "{E4FC12E0-B01B-4B5F-AD42-259E5F2A9CEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryDB", "ClassLibraryDB\ClassLibraryDB.csproj", "{E4FC12E0-B01B-4B5F-AD42-259E5F2A9CEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

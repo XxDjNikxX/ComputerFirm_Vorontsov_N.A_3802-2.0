@@ -216,12 +216,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibraryDB\ClassLibraryDB.csproj">
-      <Project>{e4fc12e0-b01b-4b5f-ad42-259e5f2a9cec}</Project>
-      <Name>ClassLibraryDB</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
