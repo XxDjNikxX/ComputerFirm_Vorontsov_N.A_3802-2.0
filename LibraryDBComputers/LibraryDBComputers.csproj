@@ -108,12 +108,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB_Comp_Firm_Backup.sql" />
     <Content Include="ModelCompFirm.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelCompFirm.Context.cs</LastGenOutput>
       <DependentUpon>ModelCompFirm.edmx</DependentUpon>
     </Content>
-    <Content Include="ModelCompFirm.edmx.sql" />
     <Content Include="ModelCompFirm.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelCompFirm.edmx</DependentUpon>
