@@ -118,11 +118,13 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
                 {
                     MessageBox.Show("Внимание, введена пустая строка!");
                     Page_Loaded(sender, e); apply = false;
+                    break;
                 }
                 if (el.Name == "tbCustTel") break;
                 else if (double.TryParse(el.Text, out double res))
                 {
                     MessageBox.Show("Внимание, введено число!"); apply = false;
+                    break;
                 }
                 foreach (var ch in chars)
                 {
@@ -130,6 +132,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
                     {
                         MessageBox.Show("Введены символы, вместо чисел!");
                         Page_Loaded(sender, e); apply = false;
+                        break;
                     }
                 }
 
