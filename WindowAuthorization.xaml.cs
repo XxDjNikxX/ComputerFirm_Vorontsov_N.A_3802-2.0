@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,11 +26,31 @@ namespace ComputerFirm_Vorontsov_N.A_3802
             InitializeComponent();
         }
 
+        private static string VerifyHash(string input)
+        {
+            byte[] tmpSource;
+            byte[] tmpHash;
+            int i;
+            tmpSource = ASCIIEncoding.ASCII.GetBytes(input);
+            tmpHash = new MD5CryptoServiceProvider().ComputeHash(tmpSource);
+
+
+            StringBuilder sOutput = new StringBuilder(tmpHash.Length);
+            for (i = 0; i < tmpHash.Length; i++)
+            {
+                sOutput.Append(tmpHash[i].ToString("X2"));
+            }
+            return sOutput.ToString();
+        }
+
         private void btnAuth_Click(object sender, RoutedEventArgs e)
         {
-            var auth = DB.CompFirm.Auth.FirstOrDefault(u => u.Login == tbLogin.Text && u.Password == tbPassword.Password);
+            var ComputedHash = VerifyHash(tbPassword.Password);
+            var auth = DB.CompFirm.Auth.FirstOrDefault(u => u.Password == ComputedHash);
+
             try
             {
+
                 if (auth != null)
                 {
                     MessageBox.Show("Авторизация прошла успешно!");

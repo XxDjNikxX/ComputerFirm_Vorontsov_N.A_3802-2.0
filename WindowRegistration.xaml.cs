@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -36,7 +37,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802
                     Auth user = new Auth
                     {
                         Login = tbLogin.Text,
-                        Password = tbPassword.Password,
+                        Password = GetHash(tbPassword.Password),
                         idRole = 1,
                     };
                     DB.CompFirm.Auth.Add(user);
@@ -55,6 +56,24 @@ namespace ComputerFirm_Vorontsov_N.A_3802
             }
         }
 
+        private static string GetHash(string input)
+        {
+            byte[] tmpSource;
+            byte[] tmpHash;
+            int i;
+            tmpSource = ASCIIEncoding.ASCII.GetBytes(input);
+            tmpHash = new MD5CryptoServiceProvider().ComputeHash(tmpSource);
+
+            
+            StringBuilder sOutput = new StringBuilder(tmpHash.Length);
+            for (i = 0; i < tmpHash.Length; i++)
+            {
+                sOutput.Append(tmpHash[i].ToString("X2"));
+            }
+            return sOutput.ToString();
+        }
+
+      
         private bool CheckRegistr(ref int counter, char[] charac)
         {
             bool reg = true;
