@@ -25,6 +25,7 @@ namespace LibraryDBComputers
         public string ProductName { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<double> Discount { get; set; }
+        public byte[] Photo { get; set; }
     
         public virtual ProductType ProductType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
