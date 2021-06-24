@@ -27,11 +27,11 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
         public PageShowSales()
         {
             InitializeComponent();
+            DB.CompFirm.Sales.Load();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            DGSales.Items.Refresh();
             DGSales.ItemsSource = DB.CompFirm.Sales.ToList();
             cbCustomers.ItemsSource = DB.CompFirm.Customer.ToList();
             cbProducts.ItemsSource = DB.CompFirm.Product.ToList();
@@ -77,7 +77,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
                 MySales.Sale_Date = DPSlaes.DisplayDate;
                 MySales.Count = int.Parse(tbCount.Text);
 
-                if (!DB.CompFirm.Sales.Any(u => u.idSale == MySales.idSale))
+                if (!DB.CompFirm.Sales.Any(u => u.idSale == MySales.idSale) && !DB.CompFirm.Sales.Any(u => u.idCustomer == MySales.idCustomer) && !DB.CompFirm.Sales.Any(u => u.idProduct == MySales.idProduct))
                 {
                     DB.CompFirm.Sales.Add(MySales);
                 }

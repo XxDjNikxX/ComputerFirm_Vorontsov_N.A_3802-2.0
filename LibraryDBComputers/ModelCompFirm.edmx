@@ -41,6 +41,7 @@
           <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Discount" Type="float" />
+          <Property Name="Photo" Type="image" />
         </EntityType>
         <EntityType Name="ProductType">
           <Key>
@@ -202,6 +203,7 @@
           <Property Name="Discount" Type="Double" />
           <NavigationProperty Name="ProductType" Relationship="Self.FK_Product_ProductType" FromRole="Product" ToRole="ProductType" />
           <NavigationProperty Name="Sales" Relationship="Self.FK_Sales_Product" FromRole="Product" ToRole="Sales" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="ProductType">
           <Key>
@@ -360,7 +362,8 @@
     <EntitySetMapping Name="Product">
       <EntityTypeMapping TypeName="IsTypeOf(CompFirmModel.Product)">
         <MappingFragment StoreEntitySet="Product">
-          <ScalarProperty Name="idProduct" ColumnName="idProduct" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
           <ScalarProperty Name="idProductType" ColumnName="idProductType" />
           <ScalarProperty Name="ProductName" ColumnName="ProductName" />
           <ScalarProperty Name="Price" ColumnName="Price" />
