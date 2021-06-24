@@ -70,17 +70,21 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
         {
-            MySales.Customer = cbCustomers.SelectedItem as Customer;
-            MySales.Product = cbProducts.SelectedItem as Product;
-            MySales.Sale_Date = DPSlaes.DisplayDate;
-            MySales.Count = int.Parse(tbCount.Text);
-
-            if (!DB.CompFirm.Sales.Any(u => u.idSale == MySales.idSale) && !DB.CompFirm.Sales.Any(u => u.Sale_Date == MySales.Sale_Date))
+            if (CheckTextBoxes(sender,e))
             {
-                DB.CompFirm.Sales.Add(MySales);
+                MySales.Customer = cbCustomers.SelectedItem as Customer;
+                MySales.Product = cbProducts.SelectedItem as Product;
+                MySales.Sale_Date = DPSlaes.DisplayDate;
+                MySales.Count = int.Parse(tbCount.Text);
+
+                if (!DB.CompFirm.Sales.Any(u => u.idSale == MySales.idSale))
+                {
+                    DB.CompFirm.Sales.Add(MySales);
+                }
+                DB.CompFirm.SaveChanges();
+                Page_Loaded(sender, e);
             }
-            DB.CompFirm.SaveChanges();
-            Page_Loaded(sender, e);
+       
         }
 
         public void CountMoney()
@@ -91,6 +95,46 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
             tbSum.Text = "Итого: " + sum.ToString() + " руб.";
         }
 
+        private bool CheckTextBoxes(object sender, RoutedEventArgs e)
+        {
+            bool apply = true;
+            char[] chars = { '-', '@', '/', '_', '%', '{', '}', '=', '-', '+', '|' };
+            List<TextBox> TbList = new List<TextBox>();
+
+            foreach (var tb in MainPanel.Children)
+            {
+                if (tb is TextBox)
+                {
+                    TbList.Add((TextBox)tb);
+                }
+            }
+
+            foreach (var el in TbList)
+            {
+                if (string.IsNullOrEmpty(el.Text))
+                {
+                    MessageBox.Show("Внимание, введена пустая строка!");
+                    Page_Loaded(sender, e); apply = false;
+                    break;
+                }
+                foreach (var ch in chars)
+                {
+                    if (el.Text.Contains(ch))
+                    {
+                        MessageBox.Show("Введены символы, вместо чисел!");
+                        Page_Loaded(sender, e); apply = false;
+                        break;
+                    }
+                }
+                if (el.Text.All(Char.IsLetter))
+                {
+                    MessageBox.Show("Введены буквы, вместо чисел!");
+                    Page_Loaded(sender, e); apply = false;
+                    break;
+                }
+            }
+            return apply;
+        }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Page_Loaded(sender, e);

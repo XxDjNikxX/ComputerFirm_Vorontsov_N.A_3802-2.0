@@ -107,11 +107,13 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
                 {
                     MessageBox.Show("Внимание, введена пустая строка!");
                     Page_Loaded(sender, e); apply = false;
+                    break;
                 }
                 else if (double.TryParse(el.Text, out double res) && el.Name == "tbProductName")
                 {
                     MessageBox.Show("Внимание, введено число!");
                     Page_Loaded(sender, e); apply = false;
+                    break;
                 }
                 foreach (var ch in chars)
                 {
@@ -119,10 +121,15 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
                     {
                         MessageBox.Show("Введены символы, вместо чисел!");
                         Page_Loaded(sender, e); apply = false;
+                        break;
                     }
                 }
-               
-
+                if (el.Text.All(Char.IsLetter) && (el.Name == "tbDiscount" || el.Name == "tbPrice"))
+                {
+                    MessageBox.Show("Введены буквы, вместо чисел!");
+                    Page_Loaded(sender, e); apply = false;
+                    break;
+                }
             }
             return apply;
         }
