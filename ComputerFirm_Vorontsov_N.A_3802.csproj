@@ -227,5 +227,14 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="LibraryDBComputers\LibraryDBComputers.csproj">
+      <Project>{1d14ec5a-0b21-4b0b-ba30-9f691dcfe4f9}</Project>
+      <Name>LibraryDBComputers</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
