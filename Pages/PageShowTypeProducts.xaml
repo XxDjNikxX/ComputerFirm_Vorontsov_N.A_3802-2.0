@@ -36,7 +36,7 @@
                    Foreground="White">
               Добавить Тип Продукта
                 </TextBlock>
-                <StackPanel HorizontalAlignment="Left" Margin="20,50">
+                <StackPanel Name="MainPanel" HorizontalAlignment="Left" Margin="20,50">
                     <TextBlock Foreground="White">Наименование:</TextBlock>
                     <TextBox  Background="Black" Name="tbTypeProductName" Opacity=".50" Foreground="White"></TextBox>
                 </StackPanel>

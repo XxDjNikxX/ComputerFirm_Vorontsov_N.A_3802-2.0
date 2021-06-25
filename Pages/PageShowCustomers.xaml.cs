@@ -117,22 +117,25 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
                 if (string.IsNullOrEmpty(el.Text))
                 {
                     MessageBox.Show("Внимание, введена пустая строка!");
-                    Page_Loaded(sender, e); apply = false;
-                    break;
+                    Page_Loaded(sender, e); apply = false; break;
                 }
-                if (el.Name == "tbCustTel") break;
-                else if (double.TryParse(el.Text, out double res))
+                else if (double.TryParse(el.Text, out double res) && el.Name != "tbCustTel")
                 {
-                    MessageBox.Show("Внимание, введено число!"); apply = false;
-                    break;
+                    MessageBox.Show("Внимание, введено число!"); apply = false; break;
+                }
+
+                if (el.Text.All(Char.IsLetter) && el.Name == "tbCustTel")
+                {
+                    MessageBox.Show("Введены буквы, вместо чисел!");
+                    Page_Loaded(sender, e); apply = false; break;
+
                 }
                 foreach (var ch in chars)
                 {
                     if (el.Text.Contains(ch))
                     {
                         MessageBox.Show("Введены символы, вместо чисел!");
-                        Page_Loaded(sender, e); apply = false;
-                        break;
+                        Page_Loaded(sender, e); apply = false; break;
                     }
                 }
 

@@ -55,13 +55,8 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 
         private void btnApply_Click(object sender, RoutedEventArgs e)
         {
-            if (tbTypeProductName.Text is null)
-            {
-                MessageBox.Show("Введена пустая строка!");
-                Page_Loaded(sender, e);
-            }
-            else
-            {
+           if(CheckTextBoxes(sender,e))
+            { 
                 MyProductType.ProductTypeName = tbTypeProductName.Text;
                 if (!DB.CompFirm.ProductType.Any(u => u.idProductType == MyProductType.idProductType) && !DB.CompFirm.ProductType.Any(u => u.ProductTypeName == MyProductType.ProductTypeName))
                 {
@@ -71,7 +66,46 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
                 Page_Loaded(sender, e);
             }
         }
+        private bool CheckTextBoxes(object sender, RoutedEventArgs e)
+        {
+            bool apply = true;
+            char[] chars = { '@', '%', '{', '}', '=', '-', '+', '|','&' };
+            List<TextBox> TbList = new List<TextBox>();
 
+            foreach (var tb in MainPanel.Children)
+            {
+                if (tb is TextBox)
+                {
+                    TbList.Add((TextBox)tb);
+                }
+            }
+
+            foreach (var el in TbList)
+            {
+                if (string.IsNullOrEmpty(el.Text))
+                {
+                    MessageBox.Show("Внимание, введена пустая строка!");
+                    Page_Loaded(sender, e); apply = false;
+                    break;
+                }
+                else if (double.TryParse(el.Text, out double res))
+                {
+                    MessageBox.Show("Внимание, введено число!");
+                    Page_Loaded(sender, e); apply = false;
+                    break;
+                }
+                foreach (var ch in chars)
+                {
+                    if (el.Text.Contains(ch))
+                    {
+                        MessageBox.Show("Введены символы, вместо чисел!");
+                        Page_Loaded(sender, e); apply = false;
+                        break;
+                    }
+                }
+            }
+            return apply;
+        }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Page_Loaded(sender, e);

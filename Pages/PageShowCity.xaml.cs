@@ -77,13 +77,13 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
         private bool CheckTextBoxes(object sender, RoutedEventArgs e)
         {
             bool apply = true;
-            char[] chars = { '-', '@', '/', '_', '%', '{', '}', '=', '-', '+', '|' };
+            char[] chars = { '@', '/', '_', '%', '{', '}', '=', '-', '+', '|' };
 
             if (string.IsNullOrEmpty(tbCityName.Text))
             {
                 MessageBox.Show("Введена пустая строка!");
                 Page_Loaded(sender, e); apply = false;
-            }
+            } 
 
             if (double.TryParse(tbCityName.Text, out double number))
             {

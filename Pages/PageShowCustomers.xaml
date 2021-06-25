@@ -14,17 +14,17 @@
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2.9*"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <DataGrid Grid.Column="0" Name="DGCustomers" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="№п/п" Binding="{Binding idCustomer}" Width=".5*"/>
                     <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width=".5*"/>
-                    <DataGridTextColumn Header="Фамилия" Binding="{Binding SecondName}" Width=".5*"/>
-                    <DataGridTextColumn Header="Отчество" Binding="{Binding PatherName}" Width=".5*"/>
-                    <DataGridTextColumn Header="Город" Binding="{Binding City, TargetNullValue = Отсуствует/Удалено}" Width=".3*"/>
-                    <DataGridTextColumn Header="Улица" Binding="{Binding CustStreet}" Width=".5*"/>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding SecondName}" Width=".6*"/>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding PatherName}" Width=".6*"/>
+                    <DataGridTextColumn Header="Город" Binding="{Binding City, TargetNullValue = Отсуствует/Удалено}" Width=".4*"/>
+                    <DataGridTextColumn Header="Улица" Binding="{Binding CustStreet}" Width=".7*"/>
                     <DataGridTextColumn Header="Телефон" Binding="{Binding CustTelephone}" Width=".5*"/>
                     <DataGridTemplateColumn Width=".5*">
                         <DataGridTemplateColumn.Header>Действия</DataGridTemplateColumn.Header>
