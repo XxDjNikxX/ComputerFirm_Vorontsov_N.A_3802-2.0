@@ -7,8 +7,9 @@
     <Schema Namespace="CompFirmModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Auth">
           <Key>
-            <PropertyRef Name="Login" />
+            <PropertyRef Name="idAuth" />
           </Key>
+          <Property Name="idAuth" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="idRole" Type="int" Nullable="false" />
@@ -164,11 +165,13 @@
         <EntityType Name="Auth">
           <Key>
             <PropertyRef Name="Login" />
+            <PropertyRef Name="idAuth" />
           </Key>
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idRole" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Roles" Relationship="Self.FK_Auth_Roles" FromRole="Auth" ToRole="Roles" />
+          <Property Name="idAuth" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -332,7 +335,8 @@
     <EntitySetMapping Name="Auth">
       <EntityTypeMapping TypeName="IsTypeOf(CompFirmModel.Auth)">
         <MappingFragment StoreEntitySet="Auth">
-          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="idAuth" ColumnName="idAuth" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="idRole" ColumnName="idRole" />
         </MappingFragment>
