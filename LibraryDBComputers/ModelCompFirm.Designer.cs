@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\DjNik\Source\Repos\VorontsovNikita\ComputerFirm_Vorontsov_N.A_3802-2.0\LibraryDBComputers\ModelCompFirm.edmx" включено. 
+﻿// Создание кода T4 для модели "D:\RepoS\ComputerFirm_Vorontsov_N.A_3802-2.0\LibraryDBComputers\ModelCompFirm.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.
