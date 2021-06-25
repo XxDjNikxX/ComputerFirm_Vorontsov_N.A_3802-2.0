@@ -17,6 +17,7 @@ namespace LibraryDBComputers
         public string Login { get; set; }
         public string Password { get; set; }
         public int idRole { get; set; }
+        public int idAuth { get; set; }
     
         public virtual Roles Roles { get; set; }
     }
