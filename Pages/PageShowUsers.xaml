@@ -1,0 +1,67 @@
+﻿<Page x:Class="ComputerFirm_Vorontsov_N.A_3802.Pages.PageShowUsers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ComputerFirm_Vorontsov_N.A_3802.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Показать_Продажи" FontFamily="{StaticResource OpenSansLight}" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".1*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <DataGrid  Name="DGUsers" AutoGenerateColumns="False"  CanUserResizeColumns="False" IsReadOnly="True" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Логин" Binding="{Binding Login,  TargetNullValue = Отстуствует/Удалено}" Width=".5*"/>
+                    <DataGridTextColumn Header="Пароль" Binding="{Binding Password, TargetNullValue = Отстуствует/Удалено}" Width=".6*"/>
+                    <DataGridTextColumn Header="Роль" Binding="{Binding Roles, TargetNullValue = Отстуствует/Удалено}" Width=".5*"/>
+                    <DataGridTemplateColumn Width=".5*">
+                        <DataGridTemplateColumn.Header>Действия</DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Button Name="btnDel" Click="btnDel_Click">Удалить</Button>
+                                    <Button Name="btnEdit" Click="btnEdit_Click">Изменить</Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid Grid.Column="1">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Name="tbLogoText" FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   Foreground="White">
+              Добавить продажу
+                </TextBlock>
+                <StackPanel Name="MainPanel" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0">
+
+                    <TextBlock Foreground="White">Логин:</TextBlock>
+                    <TextBox Name="tbLogin" Background="Black" Opacity=".50" Foreground="White" Width="125"></TextBox>
+                    <TextBlock Foreground="White">Пароль:</TextBlock>
+                    <PasswordBox Name="tbPassword" Background="Black" Opacity=".50" Foreground="White"></PasswordBox>
+                    <TextBlock Foreground="White">Роль:</TextBlock>
+                    <ComboBox  Background="Black" Name="cbRoles"></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Margin="0,10" >
+                    <Button Name="btnApply" Click="btnApply_Click" Width="75"  Margin="10,0" Height="25"  Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Добавить</Button>
+                    <Button Name="btnCancel" Click="btnCancel_Click" Width="75" Height="25" Background="Black" Foreground="White" Opacity=".50" BorderBrush="White">Отменить</Button>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>

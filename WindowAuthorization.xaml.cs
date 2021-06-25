@@ -46,7 +46,7 @@ namespace ComputerFirm_Vorontsov_N.A_3802
         private void btnAuth_Click(object sender, RoutedEventArgs e)
         {
             var ComputedHash = VerifyHash(tbPassword.Password);
-            var auth = DB.CompFirm.Auth.FirstOrDefault(u => u.Password == ComputedHash);
+            var auth = DB.CompFirm.Auth.FirstOrDefault(u => u.Login == tbLogin.Text && u.Password == ComputedHash);
 
             try
             {

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ComputerFirm_Vorontsov_N.A_3802"
         mc:Ignorable="d"
         Title="Главное окно" Height="450" Width="800" FontFamily="{StaticResource OpenSansLight}" Background="Transparent" AllowsTransparency="True" WindowStyle="None">
-    <Border Width="auto" Height="auto" Background="#3c0a6d" CornerRadius="10,10,10,10">
+    <Border Width="auto" Height="auto" Background="#3c0a6d" CornerRadius="10,10,10,10" >
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height=".40*"/>
@@ -29,6 +29,7 @@
             </Grid>
 
             <Frame NavigationUIVisibility="Hidden" Background="Transparent" Grid.Row="1" Name="MainFrame" VerticalAlignment="Center"></Frame>
+        
             <TextBlock FontSize="15" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10" 
                    Foreground="White">
             ИС "Комьютерная Фирма"

@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height=".2*"/>
+            <RowDefinition Height=".1*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" 
@@ -21,12 +21,21 @@
             <StackPanel Orientation="Vertical">
                 <Button Name="btnShowCity" Click="btnShowCity_Click" Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Города</Button>
                 <Button Name="btnShowCustomer" Click="btnShowCustomer_Click" Margin="0,5" Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Покупатели</Button>
-                <Button Name="btnShowSales" Click="btnShowSales_Click"  Margin="0,5"  Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Продажи</Button>
+                <Button Name="btnShowSales" Click="btnShowSales_Click"  Background="Black" Foreground="White" Grid.Row="1"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Продажи</Button>
             </StackPanel>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" Margin="10,0">
                 <Button Name="btnShowProduct" Click="btnShowProduct_Click"   Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Продукты</Button>
                 <Button Name="btnShowProductType" Click="btnShowProductType_Click"  Margin="0,5" Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Виды Продуктов</Button>
             </StackPanel>
         </StackPanel>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Vertical"  Name="AdminPanel">
+            <TextBlock FontSize="15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   Foreground="White">
+                Админ Панель:
+            </TextBlock>
+            <Button Name="btnUsersShow" Click="btnUsersShow_Click"  Background="Black" Foreground="White" BorderBrush="White" Opacity=".50" Width="125" Height="50">Учётные записи</Button>
+            <Button Name="btnRolesShow" Margin="0,10,0,0" Click="btnRolesShow_Click"  Background="Black" Foreground="White"  BorderBrush="White" Opacity=".50" Width="125" Height="50">Роли</Button>
+        </StackPanel>
+        
     </Grid>
 </Page>

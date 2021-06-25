@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LibraryDBComputers;
 
 namespace ComputerFirm_Vorontsov_N.A_3802.Pages
 {
@@ -20,9 +21,14 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
     /// </summary>
     public partial class PageShowGrids : Page
     {
-        public PageShowGrids()
+        Auth MyAuth { get; set; }
+        public PageShowGrids(Auth auth)
         {
             InitializeComponent();
+            MyAuth = auth;
+
+            if (auth.idRole == 2) AdminPanel.Visibility = Visibility.Visible;
+            else AdminPanel.Visibility = Visibility.Hidden;
         }
 
         private void btnShowCity_Click(object sender, RoutedEventArgs e)
@@ -53,6 +59,15 @@ namespace ComputerFirm_Vorontsov_N.A_3802.Pages
             NavigationService.Navigate(new PageShowTypeProducts());
         }
 
+        private void btnUsersShow_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageShowUsers());
 
+        }
+
+        private void btnRolesShow_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageShowRoles());
+        }
     }
 }

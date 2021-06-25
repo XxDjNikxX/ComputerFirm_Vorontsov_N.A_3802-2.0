@@ -92,11 +92,17 @@
     <Compile Include="Pages\PageShowProducts.xaml.cs">
       <DependentUpon>PageShowProducts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageShowRoles.xaml.cs">
+      <DependentUpon>PageShowRoles.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageShowSales.xaml.cs">
       <DependentUpon>PageShowSales.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageShowTypeProducts.xaml.cs">
       <DependentUpon>PageShowTypeProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageShowUsers.xaml.cs">
+      <DependentUpon>PageShowUsers.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowAuthorization.xaml.cs">
       <DependentUpon>WindowAuthorization.xaml</DependentUpon>
@@ -132,11 +138,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageShowRoles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageShowSales.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageShowTypeProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageShowUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -79,6 +79,7 @@
     <Compile Include="Models\DB.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductType.cs" />
+    <Compile Include="Models\Roles.cs" />
     <Compile Include="Models\Sales.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>ModelCompFirm.tt</DependentUpon>
