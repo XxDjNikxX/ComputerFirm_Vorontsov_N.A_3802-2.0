@@ -109,6 +109,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CompFirm_Backup_v.2.0.sql" />
     <Content Include="DB_Comp_Firm_Backup.sql" />
     <Content Include="ModelCompFirm.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
