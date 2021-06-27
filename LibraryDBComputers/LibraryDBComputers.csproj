@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="ClassDiagramDB.cd" />
     <None Include="ModelCompFirm.edmx.diagram">
       <DependentUpon>ModelCompFirm.edmx</DependentUpon>
     </None>
